@@ -3,6 +3,7 @@ package com.ethan.mvc.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ethan.mvc.models.Book;
 import com.ethan.mvc.repositories.BookRepository;
@@ -10,11 +11,13 @@ import com.ethan.mvc.repositories.BookRepository;
 @Service
 public class BookService {
     // adding the book repository as a dependency
-    private final BookRepository bookRepository;
+    // private final BookRepository bookRepository;
 
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
+    // public BookService(BookRepository bookRepository) {
+    //     this.bookRepository = bookRepository;
+    // }
+    @Autowired
+    BookRepository bookRepository;
 
     // returns all the books
     public List<Book> allBooks() {

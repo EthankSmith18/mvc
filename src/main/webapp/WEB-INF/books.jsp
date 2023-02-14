@@ -23,16 +23,29 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <div class="container">
-      <div class="card mt-3">
-        <div class="card-header">
-          <h1>
-            <p>Title: <h3><c:out value="${book.title}" /></h3></p>
-          </h1>
-        </div>
+      <div class="card">
         <div class="card-body">
-          <c:out value="${book.description}" /><br>
-          <c:out value="${book.language}" /><br>
-          <c:out value="${book.numberOfPages}" /><br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Language</th>
+              <th>Pages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach var="book" items="${books}">
+              <tr>
+                <td><c:out value="${book.id}"></c:out></td>
+                <td><a href="/books/${book.id}"><c:out value="${book.title}"></c:out></a></td>
+                <td><c:out value="${book.language}"></c:out></td>
+                <td><c:out value="${book.numberOfPages}"></c:out></td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+
         </div>
       </div>
     </div>
